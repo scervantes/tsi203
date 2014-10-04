@@ -1,0 +1,53 @@
+<?page title="Jatric :: Inicio"?>
+<zk xmlns:h="native"> <!-- h = html nativo -->
+
+	<zscript src="/indexSrc.zul">
+		
+		
+	
+	</zscript>
+	
+	<include src="/templates/header.zul"></include>
+	
+	<zscript><![CDATA[
+		// parse the j_exception
+		import java.util.Map;
+		
+		Throwable j_exception = (Throwable) sessionScope.get("j_exception");
+		String errMsg = null;
+		if (j_exception != null) {
+		    if (j_exception instanceof javax.security.auth.login.FailedLoginException) {
+		        errMsg = "Username and/or the password is not right. Please, try it again.";
+		    } else {
+		        errMsg = "Unknown exception when logging in: " + this.j_exception + " Please, contact the admin.";
+		    }
+		}
+    ]]></zscript>
+    <h:form method="post" id="j_security_check" action="j_security_check">
+        <grid>
+            <rows>
+                <row>
+                    Username :
+                    <textbox id="j_username" name="j_username" value="${sessionScope.j_username}" width="200px" />
+                </row>
+                <row>
+                    Password :
+                    <textbox id="j_password" name="j_password" type="password" width="200px" />
+                </row>
+            </rows>
+        </grid>
+        <div width="100%">
+            <h:input type="submit" value="Login" />
+            <button label="Agregar" onClick='agregarUsuario("sebacervantes90@gmail.com", j_username.value, j_password.value);' />
+        </div>
+    </h:form>
+    <div if="${errMsg != null}" width="100%" style="color:red">${errMsg}</div>
+    
+    <zscript><![CDATA[
+        j_username.focus();
+    ]]></zscript>
+	
+	
+	<include src="/templates/footer.zul"></include>
+
+</zk>

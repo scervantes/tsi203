@@ -1,0 +1,20 @@
+<?page title="" contentType="text/html;charset=UTF-8"?>
+<zk xmlns:h="native">
+	
+	<style src="/res/css/main.css" />
+	
+	<hlayout class="header">
+		<div class="giro">
+			<image src="/res/images/ball.png" height="5em" width="5em" onClick='execution.sendRedirect("/user/home.zul")'/>
+		</div>
+		<div id="logout" align="right"><a href="/user/LogoutServlet">Logout</a></div>
+	</hlayout>
+	
+	<zscript>
+		import org.zkoss.zk.ui.Session;
+		import java.util.Map;
+		
+		logout.setVisible(execution.getUserPrincipal() != null);
+	</zscript>
+	
+</zk>

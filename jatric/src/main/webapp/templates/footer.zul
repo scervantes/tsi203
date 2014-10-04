@@ -1,0 +1,6 @@
+<?page title="" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<div sclass="bottom">
+		Esto es un footer
+	</div>
+</zk>

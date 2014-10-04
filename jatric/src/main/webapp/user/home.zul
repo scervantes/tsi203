@@ -1,0 +1,10 @@
+<?page title="Jatric :: Home" contentType="text/html;charset=UTF-8"?>
+<zk xmlns:h="native">
+	
+	<include src="/templates/header.zul"></include>
+	<window title="Jatric :: Home" border="normal">
+		Te logueaste puto
+	</window>
+	<include src="/templates/footer.zul"></include>
+	
+</zk>

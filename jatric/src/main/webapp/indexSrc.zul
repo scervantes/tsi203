@@ -1,0 +1,15 @@
+
+
+	
+		import edu.fing.jatric.logica.IControladorUsuario; 
+		import edu.fing.jatric.logica.FactoryControladorUsuario;
+	
+		void agregarUsuario(String email, String username, String password) {
+			IControladorUsuario icu = new FactoryControladorUsuario().getControladorUsuario();
+			try {
+				icu.agregarUsuario("sebacervantes90@gmail.com", username, password);
+			} catch (Exception e ){
+				System.out.println(e.getMessage());
+			}
+		}
+	
